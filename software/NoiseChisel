@@ -1,0 +1,59 @@
+GNU{https://www.gnu.org/software/gnuastro/}(https://gitlab.com/makhlaghi/reproducible-paper/blob/master/README-hacking.md)
+ 
+ 
+cd Downloads/
+
+tar xvf gnuastro-0.9.tar.gz 
+cd gnuastro-0.9
+./config
+./configure
+cd ..
+tar xvf gsl-2.5.tar.gz 
+cd gsl-2.5
+./configure
+make -j 4
+make check
+sudo make install
+cd ..
+tar xvf cfitsio_latest.tar.gz 
+cd cfitsio
+cd cfitsio-3.47/
+./configure --prefix=/usr/local --enable-sse2 --enable-reentrant
+make
+make utils
+./testprog > testprog.lis
+rm cookbook fitscopy imcopy smem speed testprog
+sudo make install
+cd ..
+tar xf wcslib.tar.bz2 
+cd wcslib
+cd wcslib.tar.bz2 
+cd wcslib-6.2/
+./configure LIBS="-pthread -lcurl -lm" --without-pgplot
+make
+make check
+sudo make install
+cd ..
+cd gnuastro-0.9
+./configure
+make -j4
+make check -j4
+sudo make install
+astnoisechisel 
+astnoisechisel --version
+
+astnoisechisel S5863_B.fits --hdu=0
+ds9 -mecube S5863_B_detected.fits 
+ds9 -mecube S5863_B_detected.fits &
+i=S5863_B_detected.fits
+astarithmetic $i -h1 $i -hDETECTIONS 0 eq nan where --output=masked.fits 
+ds9 masked.fits 
+astarithmetic $i -h1 $i -hDETECTIONS 1 eq nan where --output=masked.fits 
+ds9 masked.fits 
+astsegment $i 
+ds9 -mecube S5863_B_detected_segmented.fits 
+astmkcatalog S5863_B_detected_segmented.fits --ids --help
+astmkcatalog S5863_B_detected_segmented.fits --ids --x --y --brightness
+asttable S5863_B_detected_segmented_cat.fits
+asttable S5863_B_detected_segmented_cat.fits -i
+astmkcatalog S5863_B_detected_segmented.fits --ids --ra --dec --brightness

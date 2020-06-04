@@ -1,0 +1,56 @@
+    <HTML>
+    <HEAD>
+        <TITLE>
+            Report on request338_Yang_Li
+        </TITLE>
+    </HEAD>
+
+    <BODY>
+    <CENTER>
+        <img src="../logoGAzPAR.png" />
+        <H1>Report on <i>GAzPAR/CIGALE</i> analysis of this run</H1>
+        <H2>Feedback for the request</H2>
+        <H2> request338_Yang_Li</H2>
+        <H2> Date: 04/06/2020 00:22:19</H2>
+    </CENTER>
+    <p>
+        The report associated to request338_Yang_Li contains the following files:
+    <ul>
+        <li><b>catalog338_Yang_Li.in</b>: input photometric file</li>
+        <li><b>pcigale.ini</b>: file used to create the *** models that will be compared to each observed object.</li>
+        <li><b>README.md</b>: information transmited from the GAZPAR interface to us including informations on your request.</li>
+        <li><b>filters</b>: directory including the filters that have been used for the run. Some of these filters could have been uploaded by yourself.</li>
+        <li><b>results.txt</b>: output file (ascii) with the physical parameters, the associated uncertainties, etc from the statistical analysis. The format of the file is indicated in the header.</li>
+        <li><b>results.fits</b>: output file (fits) with the physical parameters, the associated uncertainties, etc from the statistical analysis. The format of the file is indicated in the header.</li>
+        <li><b>results_mock.txt</b>: output file (ascii) from the mock analysis (output vs. input parameters). The format of the file is indicated in the header.</li>
+        <li><b>*_best_model.fits</b>: output file (fits) table containing all the physical components for the best fit model for each object.</li>
+        <li><b>*_best_model.pdf</b>: output file (pdf) figure showing the best fit model overplotted on the observed data for each object.</li>
+        <li><b>script.sh</b>: all the commands used to run CIGALE and create the figures.</li>
+    </ul>
+
+    <p>
+        You can download all the figures and the above files from: <a href="tbd"> <b>this link</b> </a>
+    <p>
+    <h2>Global notes about any <i>CIGALE</i> run</h2>
+    <ul>
+        <p>
+            <li><b>Bayesian parameters versus minimum chi2:</b> <i>CIGALE</i> compares each and every created models to the input spectral energy distributions. For this comparison, <i>CIGALE</i> provides you with two methods to estimate the physical parameters:
+                <ol>
+                    <li>The parameter associated to the minimum chi2 (stellar mass, sfr, dust attenuation, ...)</li> This best model is the one that you will find on the plots. It does not bear the entire information as only one model is used while several can be in agreement with the input data. The output parameters are listed in best_models.txt.
+                    <li>The Bayesian analysis that uses the probability distribution function (PDF) for each of the analysed parameters.</li> This is likely the best output results to carry a statistical analysis as all the <i>good</i>, are used to compute the output physical parameters and the uncertainties.
+                </ol>
+        <p>
+        <li> <b>Creation and analysis of the mock catalogue</b>: the uncertainties computed above sometimes is not enough because the analysis is degenerate, i.e. age vs attenuation degeneracy. To quantify these degeneracies, get an information on which parameter(s) is degenerate and even which range on the parameter(s), you can use the mock catalogue and its analysis by <i>CIGALE</i>. The mock catalogues are created from the best model for each input object. It is therefore close enough to the data. To use the mock catalogue, you need to associate (i.e. id cross-matching) the input best_models.txt file with the output analysis_mock_results.txt file. A comparison of the input and output for each relevant parameter will show you the quality of the parameters.
+    </ul>
+
+    <p>
+    <h2>Specific notes about this <i>CIGALE</i> request338_Yang_Li run</h2>
+    <ol>
+        <p>
+        <li><b>About this </b> some information</li>
+        <p>
+        <li><b>About that </b> some other information</li>
+    </ol>
+
+    </BODY>
+    </HTML>
